@@ -19,6 +19,9 @@ from django.contrib import sitemaps
 from django.contrib.sitemaps.views import sitemap
 from django.contrib import admin
 from django.urls import path, include
+from django.urls import re_path
+from django.views.static import serve
+
 
 from .sitemaps import CategorySitemap, PostSitemap
 
@@ -33,4 +36,6 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('', include('blog.urls')),
     path('', frontpage, name='frontpage'),
+    re_path(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
