@@ -10,16 +10,18 @@
                     <div class="columns">
                         <div class="column is-8 is-offset-2">
                             <div class="content is-medium">
-                                <h1>Search results</h1>
-                                <h3>Query "{{ query }}"</h3>
+                                <h2>Search results for query "{{ query }}":</h2>
+                                <!-- <h3 style="margin-top: 0px;"></h3> -->
+                                <hr>
                             </div>
 
                             {% for post in posts %}
+                            <p style="font-style: italic;">Article {{forloop.counter}}</p>
                                 <div class="content is-medium">
                                     <a href="{% url 'post_detail' post.category.slug post.slug %}">
-                                        <h2 class="subtitle is-4">{{ post.created_at|timesince }} ago</h2>
-                                        <h1 class="title">{{ post.title }}</h1>
-                                        <p>{{ post.intro }}</p>
+                                        <h2 class="subtitle is-6" style="margin-bottom: 0px;"> <i class="fas fa-stopwatch"></i> {{ post.created_at|timesince }} ago</h2>
+                                        <h1 class="title" style="font-family: 'Monument Extended', sans-serif; margin: 10px 0px;" >{{ post.title }}</h1>
+                                        <p style = "color:maroon"><strong>{{ post.intro }}</strong></p>
                                     </a>
                                 </div>
                             {% empty %}

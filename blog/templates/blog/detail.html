@@ -22,7 +22,7 @@
                             <p style = "color:maroon"><strong>{{ post.intro }}</strong></p>
                             <p><small>Category: <a href="{% url 'category_detail' post.category.slug %}">{{ post.category }}</a></small></p>
                             <hr>
-                            <p>{{ post.body }}</p>
+                            <p>{{ post.body|linebreaksbr }}</p>
 
                             
 
