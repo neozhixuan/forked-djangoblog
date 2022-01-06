@@ -100,11 +100,11 @@
                 <div class="content is-medium">
                   <p style="font-style: italic;">Article {{forloop.counter}}</p>
                   <a href="{% url 'post_detail' post.category.slug post.slug %}">
-                    {% if post.image %}
+                    <!-- {% if post.image %}
                     <figure class="image">
                       <img src="{{ post.image.url }}" />
                     </figure>
-                    {% endif %}
+                    {% endif %} -->
                     <script
                     src="https://kit.fontawesome.com/5076a4a8cb.js"
                     crossorigin="anonymous"
